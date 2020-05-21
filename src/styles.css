@@ -8,27 +8,34 @@
 
 
 body{
-  font-family: 'Mukta', sans-serif;
+  font-family: 'Viga', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   height: 100vh;
-  color:black;
-
+  color:white;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #time{
-  font-size: 6rem;
+  font-size: 7rem;
 }
 
 h1{
   margin-bottom: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
 }
 h2{
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+ 
 }
 
 
@@ -36,7 +43,29 @@ h2{
   #time{
     font-size: 4rem;
   }
+
+  h1{
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+  }
+  h2{
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+   
+  }
 }
 
 
 
+input {
+  padding: 0;
+  background: none;
+  border: none;
+  color: white;
+  border-bottom: 0.1rem solid white;
+  margin-top: 0;
+  margin-left: 1rem ;
+  font-size: 1.8rem;
+}
