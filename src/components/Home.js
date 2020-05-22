@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import imgMor from "../img/morning.jpg"
 import imgAft from "../img/afternoon.jpg"
 import imgNight from "../img/night.jpg"
+
 
 
 const Home = () => {
@@ -14,8 +16,15 @@ const Home = () => {
     isToggleFocus: false
    
   });
-
   useEffect(() => {
+   const initialName =  window.localStorage.getItem('name');
+   const initialFocus = window.localStorage.getItem('focus');
+   setInputName({ name: initialName , focus: initialFocus})
+   
+  },[]);
+  
+  useEffect(() => {
+   
     setTimeout(() => {
       setCurrentTime(showTime());
     }, 1000);
@@ -23,13 +32,8 @@ const Home = () => {
 
   function showTime() {
     const time = document.getElementById('time'),
-    greeting = document.getElementById('greeting'),
-    name = document.getElementById('name'),
-    focus = document.getElementById('focus')
-
-
-
-
+    greeting = document.getElementById('greeting')
+     
     let today = new Date();
     let hour = today.getHours() % 12 || 12;
     let min =  ("0" + today.getMinutes()).slice(-2);
@@ -63,6 +67,7 @@ const Home = () => {
   }
 
 const handleToogle = () => {
+  
   if(!inputName.isToggleName){
     if(inputName.name === "'Your Name Here'"){
       setInputName({...inputName, isToggleName:true , name: "" })
@@ -103,6 +108,12 @@ const handleToogleFocus = () => {
 
 const handleChange = (e) => {
   setInputName({...inputName , [e.target.name] :e.target.value})
+  if(e.target.name === 'name'){
+    window.localStorage.setItem('name', e.target.value)
+  }else if(e.target.name === 'focus'){
+    window.localStorage.setItem('focus', e.target.value)
+  }
+  
   console.log(inputName)
 }
 
@@ -125,6 +136,7 @@ const handleChange = (e) => {
               }
             >
               <input
+                id = "inputName"
                 onSubmit={handleToogle}
                 name="name"
                 value={inputName.name}
@@ -144,14 +156,14 @@ const handleChange = (e) => {
             </ClickAwayListener>
           // </span>
         ) : (
-          <span onClick={() => handleToogle()} id="name">
+          <span onClick={() => handleToogle() } id="name">
             {inputName.name}
           </span>
         )}
 
         {/* <span contentEditable='true'  id="name">Enter Name</span> */}
       </h1>
-      <h2>What's Your Main focus For Today?</h2>
+      <h2>What's Your Main Focus For Today?</h2>
 
       {inputName.isToggleFocus ? (
           <h2 id="focus">
