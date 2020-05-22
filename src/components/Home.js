@@ -19,7 +19,10 @@ const Home = () => {
   useEffect(() => {
    const initialName =  window.localStorage.getItem('name');
    const initialFocus = window.localStorage.getItem('focus');
-   setInputName({ name: initialName , focus: initialFocus})
+   if(initialFocus && initialName){
+    setInputName({ name: initialName , focus: initialFocus})
+   }
+   
    
   },[]);
   
