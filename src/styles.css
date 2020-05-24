@@ -8,33 +8,101 @@
 
 
 body{
-  font-family: 'Mukta', sans-serif;
+  /* font-family: 'Viga', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Special Elite', cursive; */
+  /* font-family: 'Poppins', sans-serif; */
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   height: 100vh;
-  color:black;
-
+  color:white;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #time{
-  font-size: 6rem;
+  font-size: 7rem;
 }
 
 h1{
   margin-bottom: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
 }
 h2{
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+ 
+}
+input {
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: none;
+  border: none;
+  color: white;
+  border-bottom: 0.1rem solid white;
+  margin-top: 0;
+  margin-left: 1rem ;
+  font-size: 1.8rem;
+}
+
+.popoverBtn{
+  position: fixed;
+  bottom: 1.5rem;
+  right:1.5rem;
+}
+
+.popoverTodoBtn{
+  position: fixed;
+  bottom: 4.5rem;
+  right:2.2rem;
+  cursor: pointer;
+
+}
+form{
+  padding: 1rem;
+  
+}
+
+.formCnt button {
+margin-top: 2rem;
+font-size: large;
 }
 
 
-@media(max-width: 700px){
+.error {
+  position: relative;
+  animation: shake .1s linear;
+  animation-iteration-count: 3;
+}
+
+@keyframes shake {
+  0% { left: -5px; }
+  100% { right: -5px; }
+}
+
+@media(max-width: 600px){
   #time{
-    font-size: 4rem;
+    font-size: 3.5rem;
+  }
+
+  h1{
+    margin-bottom: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+  }
+  h2{
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.0rem;
+   
   }
 }
 
