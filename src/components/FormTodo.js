@@ -46,16 +46,19 @@ const FormTodo = () => {
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem(
-      "todoCount",
-      todoData.filter((item) => {
-        if (!item.isComplete) {
-          return item;
-        }
-      }).length
-    );
-
-    window.localStorage.setItem("todoData", JSON.stringify(todoData));
+    if(todoData.length !== 0) {
+      window.localStorage.setItem(
+        "todoCount",
+        todoData.filter((item) => {
+          if (!item.isComplete) {
+            return item;
+          }
+        }).length
+      );
+  
+      window.localStorage.setItem("todoData", JSON.stringify(todoData));
+    }
+   
   });
 
   const handleInputChange = (e) => {
