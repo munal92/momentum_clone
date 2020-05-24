@@ -45,10 +45,10 @@ const FormTodo = () => {
   useEffect(() => {
     const dta = window.localStorage.getItem("todoData");
     if(dta !== null){
-      console.log('null degil')
+    
       setTodoData(JSON.parse(dta));
     }else{
-      console.log('null ')
+    
     }
    
   }, []);
@@ -113,7 +113,7 @@ const FormTodo = () => {
 
   ///////////
 
-  console.log('todoData',todoData)
+  
 
   return (
     <div className="formCnt">
