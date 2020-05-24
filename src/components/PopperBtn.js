@@ -1,19 +1,18 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Popover from '@material-ui/core/Popover';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
-import InfoIcon from '@material-ui/icons/InfoOutlined';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Popover from "@material-ui/core/Popover";
+import IconButton from "@material-ui/core/IconButton";
+import InfoIcon from "@material-ui/icons/InfoOutlined";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 
 const useStyles = makeStyles((theme) => ({
-  typography: {
+  List: {
     padding: theme.spacing(2),
-   
+    display: "flex",
   },
 }));
-
 
 const PopperBtn = () => {
   const classes = useStyles();
@@ -28,65 +27,65 @@ const PopperBtn = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? "simple-popover" : undefined;
 
-    return (
-
-      <div className="popoverBtn" >
-      <IconButton  aria-describedby={id} variant="contained" color="primary" onClick={handleClick} >
-      <InfoIcon />
+  return (
+    <div className="popoverBtn">
+      <IconButton
+        aria-describedby={id}
+        variant="contained"
+        color="primary"
+        onClick={handleClick}
+      >
+        <InfoIcon />
       </IconButton>
       <Popover
-        id={id}
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
+          vertical: "top",
+          horizontal: "left",
         }}
         transformOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
+          vertical: "bottom",
+          horizontal: "right",
         }}
       >
-        {/* <Typography className={classes.typography}>The content of the Popover.</Typography> */}
-        
-        <Typography className={classes.typography}>
-        <div className="socialMed_cont">
-          <a
-            
-            href="mailto:fatihissf0@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i style={{ margin: "1rem" }} className="fas fa-envelope"></i>
-          </a>
+        <List className={classes.List}>
+          <ListItem>
+            <a
+              href="mailto:fatihissf0@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fas fa-envelope"></i>
+            </a>
+          </ListItem>
 
-          
+          <ListItem>
+            <a
+              href="https://www.linkedin.com/in/munal92/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-linkedin"></i>
+            </a>
+          </ListItem>
 
-
-          <a
-            
-            href="https://www.linkedin.com/in/munal92/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i style={{ margin: "1rem" }} className="fab fa-linkedin"></i>
-          </a>
-          <a
-            
-            href="https://github.com/munal92?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i style={{ margin: "1rem" }} className="fab fa-github"></i>
-          </a>
-        </div>
-        </Typography>
+          <ListItem>
+            <a
+              href="https://github.com/munal92?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i>
+            </a>
+          </ListItem>
+        </List>
       </Popover>
     </div>
-    );
+  );
 };
 
 export default PopperBtn;

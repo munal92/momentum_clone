@@ -59,6 +59,35 @@ input {
   right:1.5rem;
 }
 
+.popoverTodoBtn{
+  position: fixed;
+  bottom: 4.5rem;
+  right:2.2rem;
+  cursor: pointer;
+
+}
+form{
+  padding: 1rem;
+  
+}
+
+.formCnt button {
+margin-top: 2rem;
+font-size: large;
+}
+
+
+.error {
+  position: relative;
+  animation: shake .1s linear;
+  animation-iteration-count: 3;
+}
+
+@keyframes shake {
+  0% { left: -5px; }
+  100% { right: -5px; }
+}
+
 @media(max-width: 600px){
   #time{
     font-size: 3.5rem;
