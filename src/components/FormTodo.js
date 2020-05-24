@@ -30,7 +30,9 @@ const useStyles = makeStyles((theme) => ({
 
 const FormTodo = () => {
   const classes = useStyles();
-  const [todoData, setTodoData] = useState([]);
+  const [todoData, setTodoData] = useState([
+  
+  ]);
 
   const [inputTemp, setInputTemp] = useState({
     input: "",
@@ -42,11 +44,17 @@ const FormTodo = () => {
 
   useEffect(() => {
     const dta = window.localStorage.getItem("todoData");
-    setTodoData(JSON.parse(dta));
+    if(dta !== null){
+      console.log('null degil')
+      setTodoData(JSON.parse(dta));
+    }else{
+      console.log('null ')
+    }
+   
   }, []);
 
   useEffect(() => {
-    if(todoData.length !== 0) {
+    
       window.localStorage.setItem(
         "todoCount",
         todoData.filter((item) => {
@@ -57,7 +65,7 @@ const FormTodo = () => {
       );
   
       window.localStorage.setItem("todoData", JSON.stringify(todoData));
-    }
+   
    
   });
 
@@ -102,6 +110,11 @@ const FormTodo = () => {
     setTodoData(a);
   };
 
+
+  ///////////
+
+  console.log('todoData',todoData)
+
   return (
     <div className="formCnt">
       <FormGroup>
@@ -127,7 +140,7 @@ const FormTodo = () => {
           />
         </form>
 
-        {todoData.length > 0
+        {(todoData.length > 0 && todoData != null)
           ? todoData.map((item, index) => (
               <FormControlLabel
                 className={classes.checkbx}

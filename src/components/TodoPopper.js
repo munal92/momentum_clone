@@ -43,7 +43,7 @@ const TodoPopper = () => {
       };
     return (
         <div  className="popoverTodoBtn">
-            <Badge badgeContent={window.localStorage.getItem('todoCount')} color="error">
+            <Badge badgeContent={window.localStorage.getItem('todoCount')>0 ? window.localStorage.getItem('todoCount') : window.localStorage.getItem('')} color="error">
         <PlaylistAddCheckIcon color="primary" type="button" onClick={handleOpen} />
       </Badge>
 
